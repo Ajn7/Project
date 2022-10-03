@@ -11,7 +11,7 @@ import {
   StatusBar,
 } from "react-native";
 
-export default function Home() {
+export default function Home({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
@@ -44,10 +44,14 @@ export default function Home() {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
  
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} 
+      onPress={() => navigation.navigate('Result', {
+              paramKey1: email,
+              
+            })} >
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
-
+      
       <TouchableOpacity>
         <Text></Text>
         <Text style={styles.account_button}>Dont have an account?</Text>

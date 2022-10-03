@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Result = () => {
+const Result = ({route}) => {
   return (
     <View>
-      <Text>This is Home</Text>
+      <Text>User ID: {route.params.paramKey1} </Text>
     </View>
   )
 }
