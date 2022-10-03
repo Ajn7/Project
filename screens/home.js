@@ -14,6 +14,37 @@ import {
 export default function Home({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const checkTextInput = () => {
+
+    //Check for the Name TextInput
+
+    if (!email.trim()) {
+
+      alert('Please Enter Email');
+
+      return;
+
+    }
+
+    //Check for the Email TextInput
+
+    if (!password.trim()) {
+
+      alert('Please Enter Password');
+
+      return;
+
+    }
+
+    //Checked Successfully
+    //Do whatever you want
+    // eg:alert('Success');
+    
+    navigation.navigate('Result', {
+               paramKey1: email,
+              
+            })
+  };
  
   return (
     <View style={styles.container}>
@@ -45,10 +76,11 @@ export default function Home({navigation}) {
       </TouchableOpacity>
  
       <TouchableOpacity style={styles.loginBtn} 
-      onPress={() => navigation.navigate('Result', {
-              paramKey1: email,
+      // onPress={() => navigation.navigate('Result', {
+      //         paramKey1: email,
               
-            })} >
+      //       })} 
+      onPress={checkTextInput}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
       
