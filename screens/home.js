@@ -37,20 +37,21 @@ export default function Home({navigation}) {
 
     }
 
-    //api GET requset
-    
+    //api post requset
+    //sample api https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90
+    // http://10.0.2.2:2000/adduser 10.0.2.2 points to localhost
     try{
-      await fetch('https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90',{
+      await fetch('http://10.0.2.2:2000/adduser',{
         method:'post',
         mode:'no-cors',
         headers:{
-          'Accept':'application/json',
-          'Content-Type':'application/json'
+           'Accept':'application/json',
+           'Content-Type':'application/json'
 
         },
         body:JSON.stringify({
-          "username":email,
-          "password":password
+          "email":email,
+          "password":password //username
         })
       });
     }catch(e){
