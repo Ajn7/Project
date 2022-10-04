@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import { parseAsync } from "@babel/core";
+import React, { useState ,useEffect} from "react";
 import {
   StyleSheet,
   Text,
@@ -14,7 +15,7 @@ import {
 export default function Home({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const checkTextInput = () => {
+  const checkTextInput = async () => {
 
     //Check for the Name TextInput
 
@@ -35,15 +36,57 @@ export default function Home({navigation}) {
       return;
 
     }
+    try{
+      await fetch('https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90',{
+        method:'post',
+        mode:'no-cors',
+        headers:{
+          'Accept':'application/json',
+          'Content-Type':'application/json'
+
+        },
+        body:JSON.stringify({
+          "username":"j",
+          "password":"bbbb"
+        })
+      });
+    }catch(e){
+        console.log(e);
+    }
 
     //Checked Successfully
     //Do whatever you want
     // eg:alert('Success');
-    
-    navigation.navigate('Result', {
-               paramKey1: email,
+
+    // navigation.navigate('Result', {
+    //            paramKey1: email,
               
-            })
+    //         })
+    // const response = await fetch(`http://api.example.com?username=${username}`);
+    // const jsonData = await response.json();
+  // const apiCall= async () =>{
+  //     try{
+  //       await fetch('https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90',{
+  //         method:'post',
+  //         mode:'no-cors',
+  //         headers:{
+  //           'Accept':'application/json',
+  //           'Content-Type':'application/json'
+
+  //         },
+  //         body:JSON.stringify({
+  //           "username":"j",
+  //           "password":"bbbb"
+  //         })
+  //       });
+  //     }catch(e){
+  //         console.log(e);
+  //     }
+
+      
+    //}
+   
+ 
   };
  
   return (
