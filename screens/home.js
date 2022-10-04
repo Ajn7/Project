@@ -65,6 +65,10 @@ export default function Home({navigation}) {
     //            paramKey1: email,
               
     //         })
+    navigation.navigate('Result', {
+               paramKey1: email,
+              
+             })
   };
  
   return (
