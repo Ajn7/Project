@@ -38,15 +38,25 @@ export default function Home({navigation}) {
 
     }
 
-   
-
-    //Checked Successfully
-    //Do whatever you want
-    // eg:alert('Success');
-    
-    
 
     if(password=="api"){
+      fetch('http://10.0.2.2:2000/users', {
+      method: 'GET',
+      //Request Type
+    })
+      .then((response) => response.json())
+      //If response is in json then in success
+      .then((responseJson) => {
+        //Success
+        alert(JSON.stringify(responseJson));
+        console.log(responseJson);
+      })
+      //If response is not in json then in error
+      .catch((error) => {
+        //Error
+        alert(JSON.stringify(error));
+        console.error(error);
+      });
     navigation.navigate('Result', {
                paramKey1: email,
               
