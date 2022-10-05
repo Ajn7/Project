@@ -5,6 +5,7 @@ import Home from './screens/home'
 import Start from './screens/start'
 import { createStackNavigator } from '@react-navigation/stack'
 import Result from './screens/result'
+import Signup from './screens/signup'
 
 
 const Stack=createStackNavigator();
@@ -35,6 +36,11 @@ const App = () => {
     name="Result"
     component={Result}
     options={{title:"Result Screen"}}
+     />
+     <Stack.Screen
+    name="Signup"
+    component={Signup}
+    options={{title:"Signup Screen"}}
      />
    </Stack.Navigator>
 

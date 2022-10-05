@@ -15,6 +15,7 @@ import {
 export default function Home({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [data, setData] = useState([]);
   const checkTextInput = async () => {
 
     //Check for the Name TextInput
@@ -37,39 +38,20 @@ export default function Home({navigation}) {
 
     }
 
-    //api post requset
-    //sample api https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90
-    // http://10.0.2.2:2000/adduser 10.0.2.2 points to localhost
-    try{
-      await fetch('http://10.0.2.2:2000/adduser',{
-        method:'post',
-        mode:'no-cors',
-        headers:{
-           'Accept':'application/json',
-           'Content-Type':'application/json'
-
-        },
-        body:JSON.stringify({
-          "email":email,
-          "password":password //username
-        })
-      });
-    }catch(e){
-        console.log(e);
-    }
+   
 
     //Checked Successfully
     //Do whatever you want
     // eg:alert('Success');
+    
+    
 
-    // navigation.navigate('Result', {
-    //            paramKey1: email,
-              
-    //         })
+    if(password=="api"){
     navigation.navigate('Result', {
                paramKey1: email,
               
              })
+            }
   };
  
   return (
@@ -110,7 +92,7 @@ export default function Home({navigation}) {
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
       
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Signup')} >
         <Text></Text>
         <Text style={styles.account_button}>Dont have an account?</Text>
       </TouchableOpacity>
