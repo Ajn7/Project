@@ -2,7 +2,7 @@ import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native'
 import React from 'react'
 import Title from '../components/title'
 import { STAIMG } from '../assets'
-import Home from './home'
+import Home from './login'
 
 const Start = ({navigation}) => {
 

@@ -12,10 +12,12 @@ import {
   StatusBar,
 } from "react-native";
 
-export default function Home({navigation}) {
+export default function Login({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [data, setData] = useState([]);
+   [statusCode, setStatus] = useState("");
+   [data, setData] = useState("");
+  
   const checkTextInput = async () => {
 
     //Check for the Name TextInput
@@ -38,30 +40,43 @@ export default function Home({navigation}) {
 
     }
 
+   
+      
+    const response = await fetch('http://10.0.2.2:2000/login',{
+        method:'post',
+        mode:'no-cors',
+        headers:{
+           'Accept':'application/json',
+           'Content-Type':'application/json'
 
-    if(password=="api"){
-      fetch('http://10.0.2.2:2000/users', {
-      method: 'GET',
-      //Request Type
-    })
-      .then((response) => response.json())
-      //If response is in json then in success
-      .then((responseJson) => {
-        //Success
-        alert(JSON.stringify(responseJson));
-        console.log(responseJson);
+        },
+        body:JSON.stringify({
+          "email":email,
+          "password":password //username
+        })
       })
-      //If response is not in json then in error
-      .catch((error) => {
-        //Error
-        alert(JSON.stringify(error));
+      .then(response => {
+        statusCode = setStatus(response.status);
+        data = setData(response.json());
+        
+       //Promise.all([statusCode, data]);
+      }).catch(error => {
         console.error(error);
+        return { name: "network error", description: "" };
       });
-    navigation.navigate('Result', {
+        
+       
+   
+    if(statusCode==200){ 
+    navigation.navigate('Home', {
                paramKey1: email,
               
              })
             }
+    else{
+      alert("Invalid Username or Password")
+    }
+            
   };
  
   return (

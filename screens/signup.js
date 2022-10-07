@@ -66,11 +66,18 @@ const Check =async()=>{
             "email":email,
             "password":password1 //username
           })
-        });
+        })
+        .then(response => {
+          statusCode = setStatus(response.status);
+          data = setData(response.json());
+          alert(statusCode+" Success")
+         
+        })
       }catch(e){
           console.log(e);
       }
-    navigation.navigate("Result",{
+      
+    navigation.navigate("Home",{
         paramKey1: email,
        
       })

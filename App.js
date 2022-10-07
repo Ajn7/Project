@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import Home from './screens/home'
 import Start from './screens/start'
 import { createStackNavigator } from '@react-navigation/stack'
-import Result from './screens/result'
 import Signup from './screens/signup'
+import Home from './screens/homepage'
+import Login from './screens/login'
 
 
 const Stack=createStackNavigator();
@@ -28,14 +28,14 @@ const App = () => {
 
    <Stack.Screen
     name="Login"
-    component={Home}
+    component={Login}
     options={{title:"Login"}}
      />
      
      <Stack.Screen
-    name="Result"
-    component={Result}
-    options={{title:"Result Screen"}}
+    name="Home"
+    component={Home}
+    options={{title:"Home Screen"}}
      />
      <Stack.Screen
     name="Signup"
