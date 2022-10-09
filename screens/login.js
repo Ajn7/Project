@@ -41,8 +41,8 @@ export default function Login({navigation}) {
     }
 
    
-      
-    const response = await fetch('http://10.0.2.2:2000/login',{
+      //http://10.0.2.2:2000/login -sample api(not dbconnected)
+    const response = await fetch('http://10.0.2.2:3000/showuser',{
         method:'post',
         mode:'no-cors',
         headers:{

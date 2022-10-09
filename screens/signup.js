@@ -52,9 +52,9 @@ const Check =async()=>{
     //api post requset
     //sample api https://webhook.site/f555502c-d993-4162-bc33-bda041e5ff90
     // http://10.0.2.2:2000/adduser (10.0.2.2) points to localhost
-
+   
       try{
-        await fetch('http://10.0.2.2:2000/adduser',{
+        await fetch('http://10.0.2.2:3000/user',{
           method:'post',
           mode:'no-cors',
           headers:{
